@@ -1,8 +1,17 @@
 class Portfolio < ApplicationRecord
     #establishing connection with db technology table
     has_many :technologies
+
+    #accepts multiple attributes
+    #in terminal would type: 
+    #Portfolio.create!(title: "Web app", substring: "It is awesome", body: "Some text", technologies_attributes: [{name: "Ruby"}, {name: "Angular"}, {name: "React.js"}])
+    #do not accept this if the attribute of name from technologies db table if blank
+    accepts_nested_attributes_for :technologies,
+                                    reject_if: lambda { |attrs| attrs['name'].blank?}
+
     #getting access to Placeholder method from concerns/placeholder.r
     include Placeholder
+
     #data validation- a portfolio must have a title, body, main_image, thumb_image in order to be created.
     validates_presence_of :title, :body, :main_image, :thumb_image
 

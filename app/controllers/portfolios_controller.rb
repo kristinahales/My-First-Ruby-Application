@@ -15,12 +15,14 @@ class PortfoliosController < ApplicationController
     #@ allowed us to created a new instance of the portfolio and made it available to the form.
     def new 
         @portfolio_item = Portfolio.new
+        #creates three types of technologies and makes it available to the form.
+        3.times {@portfolio_item.technologies.build}
     end
 
     #create action creates a portfolio item
     def create
         #specifying the parameters that are allowed to go through the system.
-        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :substring, :body))
+        @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :substring, :body, technologies_attributes: [:name]))
     
         respond_to do |format|
             if @portfolio_item.save
