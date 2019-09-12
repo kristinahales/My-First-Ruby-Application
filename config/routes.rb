@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  devise_for :users
 # default routes given to us for resources  
 # resources :portfolios
 
