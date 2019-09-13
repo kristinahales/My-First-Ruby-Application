@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  #a controller process that allows a method to be run before other controller methods.
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
   # GET /blogs
