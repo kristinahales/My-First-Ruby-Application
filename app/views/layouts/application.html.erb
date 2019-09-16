@@ -17,12 +17,8 @@
   <%# location is a local variable that we are passing in and including a classname of 'top' to make styling customizable. %>
   <%= render "shared/nav", location: 'top' %>
 
-  <% if current_user.is_a?(User) %>
-    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Register", new_user_registration_path %>
-    <%= link_to "Login", new_user_session_path %>
-  <% end %>
+  <%# Checks for current user from app/helper/application_helper %>
+  <%= login_helper %>
 
   <%= yield %>
 
