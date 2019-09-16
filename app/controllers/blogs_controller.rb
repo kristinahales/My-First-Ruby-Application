@@ -2,15 +2,25 @@ class BlogsController < ApplicationController
   #a controller process that allows a method to be run before other controller methods.
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
+  #says in the layout directory find a file called blog and apply layout styles. 
+  layout "blog"
+
   # GET /blogs
   # GET /blogs.json
   def index
     @blogs = Blog.all
+    #able to set a specific title for the blogs page using application controller method.
+    @page_title = "My Portfolio Blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    #page_title is a method from concerns/application file
+    #we have access to @blog_title because of the before_action that calls :set_blog method.
+    @page_title = @blog.title
+    #search engine optimization. 
+    @seo_keywords = @blog.body
   end
 
   # GET /blogs/new

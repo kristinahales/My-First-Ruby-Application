@@ -3,6 +3,7 @@
 
 
 class PortfoliosController < ApplicationController
+    layout "portfolio"
     #index action shows all portfolio items
     #@ symbol makes it an instance variable in order to access it in the views and controller file. 
     #if no @ symbol it will only be accessed in the method, not other files.

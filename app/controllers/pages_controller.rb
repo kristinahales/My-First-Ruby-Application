@@ -1,3 +1,4 @@
+#the PagesController inherits from the ApplicationController
 class PagesController < ApplicationController
   def home
     @posts = Blog.all
