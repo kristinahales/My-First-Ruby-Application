@@ -14,8 +14,11 @@
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
 
-    <%= render "shared/nav" %>
+    <%# Here we are rendering the nav bar from views/shared/nav %>
+    <%# location is a local variable that we are passing in and including a classname of 'top' to make styling customizable. %>
+    <%= render "shared/nav", location: 'top' %>
 
+    <%# If the current user is coming from the user model, show logout button, otherwise show register and login button %>
     <% if current_user.is_a?(User) %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete %>
     <% else %>

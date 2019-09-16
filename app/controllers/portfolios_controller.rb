@@ -43,6 +43,7 @@ class PortfoliosController < ApplicationController
     def edit 
         #looking for a specific portfolio item based on id to edit.
         @portfolio_item = Portfolio.find(params[:id])
+       
     end
     
     def update

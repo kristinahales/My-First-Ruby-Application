@@ -1,4 +1,6 @@
-<div>
+<%# Partials are always created in the views file and contain a _ before the name. %>
+<%# We are able to access these nav bar components in more than one layout now. %>
+<div class="<%= location %>">
     <div><%= link_to "Home", root_path %></div>
     <div><%= link_to "About", about_path %></div>
     <div><%= link_to "Contact", contact_path %></div>
