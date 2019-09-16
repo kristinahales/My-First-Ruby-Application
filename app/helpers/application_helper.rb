@@ -11,4 +11,5 @@ module ApplicationHelper
             (link_to "Login", new_user_session_path)
         end
     end
+
 end
