@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   #including this module from concerns/current_user_concern
   include CurrentUserConcern
   include DefaultPageContent
-
 end
+
+
