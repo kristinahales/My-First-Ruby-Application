@@ -11,16 +11,16 @@
   </head>
 
   <body>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-  <%# location is a local variable that we are passing in and including a classname of 'top' to make styling customizable. %>
-  <%= render "shared/nav", location: 'top' %>
+      <%= render "shared/application_nav"%>
 
-  <%# Checks for current user from app/helper/application_helper %>
-  <%= login_helper %>
+      <%# Checks for current user from app/helper/application_helper %>
+      <%= login_helper %>
 
-  <%= yield %>
+      <%= yield %>
 
-  <%= @copyright %>
-
+      <%= @copyright %>
+    </div>
   </body>
 </html>
