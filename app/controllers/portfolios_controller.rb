@@ -3,6 +3,7 @@
 
 
 class PortfoliosController < ApplicationController
+    before_action :set_portfolio_item, only: [:edit, :update, :destroy, :show]
     layout "portfolio"
     #index action shows all portfolio items
     #@ symbol makes it an instance variable in order to access it in the views and controller file. 
@@ -41,13 +42,9 @@ class PortfoliosController < ApplicationController
 
     
     def edit 
-        #looking for a specific portfolio item based on id to edit.
-        @portfolio_item = Portfolio.find(params[:id])
-       
     end
     
     def update
-        @portfolio_item = Portfolio.find(params[:id])
         respond_to do |format|
             if @portfolio_item.update(portfolio_params)
                 format.html { redirect_to portfolios_path, notice: 'Blog was successfully updated.' }
@@ -61,14 +58,10 @@ class PortfoliosController < ApplicationController
 
 
     def show
-        #finds specific portfolio item to show.
-        @portfolio_item = Portfolio.find(params[:id])
     end
 
 
     def destroy
-        #perform the lookup
-        @portfolio_item = Portfolio.find(params[:id])
         #destroy/delete record
         @portfolio_item.destroy
         #redirect
@@ -87,7 +80,11 @@ class PortfoliosController < ApplicationController
                                              )
 
         end
-
+    
+    def set_portfolio_item
+        #perform the lookup
+        @portfolio_item = Portfolio.find(params[:id])
+    end
 
 
 end

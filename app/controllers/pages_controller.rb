@@ -5,9 +5,11 @@ class PagesController < ApplicationController
     @skills = Skill.all
   end
 
+  #the action name must match file name
   def about
   end
 
+  #the action name must match file name
   def contact
   end
 end
