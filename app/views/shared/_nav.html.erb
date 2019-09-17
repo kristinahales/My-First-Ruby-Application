@@ -6,5 +6,6 @@
     <div><%= link_to "Contact", contact_path %></div>
     <div><%= link_to "Blog", blogs_path %></div>
     <div><%= link_to "Portfolio", portfolios_path %></div>
-
+    <%# Checks for current user from app/helper/application_helper %>
+    <%= login_helper 'nav-link' %>
 </div>
