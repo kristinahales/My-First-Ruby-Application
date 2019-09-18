@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import "font-awesome";
 
 /* stylelint-disable selector-list-comma-newline-after */
 
@@ -132,3 +133,11 @@ margin-bottom: 0;
   font-size: 25px;
 }
 
+
+/*
+* Custom Links
+*/
+
+.social-links li {
+    font-size: 2.5em;
+}

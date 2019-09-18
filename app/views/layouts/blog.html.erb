@@ -11,49 +11,17 @@
         <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
+
     <body>
-
-    <%= render 'shared/blog_nav'%> 
-  <%# start of blog header %>
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-center align-items-center">
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark" href="#">My Blog Posts</a>
+        <%= render 'shared/blog_nav'%> 
+        <%= render 'shared/blog_masthead'%> 
+        <div class='container'>
+            <div class='row'>
+                <%= yield %>
+                <%= render 'shared/blog_sidebar'%>
             </div>
-            <%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %>
+        <%= render 'shared/blog_footer'%>
         </div>
-    </header>
-  <%# end of blog header %>
-
-
-  <%# start of container and row element %>
-  <div class='container'>
-  <div class='row'>
-  <%# end of container and row element %>
-
-
-    <%= yield %>
-
-    <%# rendering sidebar partial to the screen %>
-    <%= render 'shared/blog_sidebar'%>
-
-    </div>
-    <%# end of sidebar %>
-
-
-    <%# start of footer %>
-<footer class="blog-footer">
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
-<%# end of footer %>
-
-
-
-
-    </div>
-
-
     </body>
+
 </html>

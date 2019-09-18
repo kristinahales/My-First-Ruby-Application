@@ -10,7 +10,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    #the .page(params[:page].per(5)) on Blog is part of the kaminiri gem which allows us to see only 5 blogs at one time.
+    @blogs = Blog.page(params[:page]).per(5)
     #able to set a specific title for the blogs page using application controller method.
     @page_title = "My Portfolio Blog"
   end
