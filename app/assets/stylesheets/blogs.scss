@@ -129,15 +129,28 @@ margin-bottom: 0;
 }
 
 
-.nav-container a {
-  font-size: 25px;
-}
-
-
 /*
 * Custom Links
 */
-
 .social-links li {
     font-size: 2.5em;
+}
+
+.nav-container {
+    background: rgb(0,123,255);
+    color: white;
+    width: 100vw;
+}
+
+.nav-container a {
+    font-size: 20px;
+}
+
+
+.nav-link {
+    color: white;
+}
+
+.main-blog-container {
+    margin-top: 30px;
 }
