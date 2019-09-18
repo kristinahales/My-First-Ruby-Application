@@ -5,7 +5,7 @@ class BlogsController < ApplicationController
   #says in the layout directory find a file called blog and apply layout styles. 
   layout "blog"
   #everyone has access to show and index. regular user cannot destroy, update, and create. site_admin can do everything.
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
