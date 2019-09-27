@@ -15,7 +15,8 @@
     <body>
     <%# renders portfolio nav partial %>
     <%= render 'shared/portfolio_nav'%>
-    <%= render 'shared/portfolio_masthead'%>
+    <%# will not see this header if site admin %>
+    <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin) %>
 
     <%= yield %>
 
