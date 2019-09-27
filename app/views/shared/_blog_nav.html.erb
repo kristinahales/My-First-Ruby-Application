@@ -2,10 +2,8 @@
 <%# We are able to access these nav bar components in more than one layout now. %>
 <div class="nav-container">
     <nav class="nav d-flex justify-content-center">
-        <%= link_to "About", about_path, class: 'nav-link' %>
-        <%= link_to "Contact", contact_path, class: 'nav-link' %>
-        <%= link_to "Blog", blogs_path, class: 'nav-link' %>
-        <%= link_to "Portfolio", portfolios_path, class: 'nav-link' %>      
+        <%# helpers/application_helper %>
+        <%= nav_helper 'nav-link', 'span' %>  
         <%= login_helper 'nav-link' %>
     </nav>
     <hr/>
