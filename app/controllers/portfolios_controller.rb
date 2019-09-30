@@ -15,6 +15,13 @@ class PortfoliosController < ApplicationController
     @portfolio_items = Portfolio.by_position
   end
   
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position])
+    end
+    #tells Ruby that we are all done and that there is no view file for this method.
+    render nothing: true
+  end
 
   #new action only renders the item, it does not create it. 
   #@ allowed us to created a new instance of the portfolio and made it available to the form.
