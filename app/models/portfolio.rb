@@ -9,7 +9,7 @@ class Portfolio < ApplicationRecord
     accepts_nested_attributes_for :technologies,
                                     reject_if: lambda { |attrs| attrs['name'].blank?}
 
-    #getting access to Placeholder method from concerns/placeholder.r
+    # getting access to Placeholder method from concerns/placeholder
     include Placeholder
 
     #data validation- a portfolio must have a title, body, main_image, thumb_image in order to be created.
@@ -24,4 +24,8 @@ class Portfolio < ApplicationRecord
         self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
     end
 
+    #positions portfolio items in ascending order 
+    def self.by_position
+        order("position ASC")
+    end
 end
