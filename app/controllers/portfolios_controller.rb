@@ -6,7 +6,7 @@ class PortfoliosController < ApplicationController
   before_action :set_portfolio_item, only: [:edit, :update, :destroy, :show]
   layout "portfolio"
   #everyone has access to show and index. regular user cannot destroy, update, and create. site_admin can do everything.
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :sort]}, site_admin: :all
 
   #index action shows all portfolio items in ascending order
   #@ symbol makes it an instance variable in order to access it in the views and controller file. 
