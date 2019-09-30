@@ -15,6 +15,10 @@ class Portfolio < ApplicationRecord
     #data validation- a portfolio must have a title, body, main_image, thumb_image in order to be created.
     validates_presence_of :title, :body, :main_image, :thumb_image
 
+    mount_uploader :thumb_image, PortfolioUploader
+    mount_uploader :main_image, PortfolioUploader
+
+
     #we are setting default values for the main_image and thumb_image for when a portofolio item has been initialized.
     after_initialize :set_defaults
 
