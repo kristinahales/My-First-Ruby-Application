@@ -27,8 +27,6 @@ class PortfoliosController < ApplicationController
   #@ allowed us to created a new instance of the portfolio and made it available to the form.
   def new 
     @portfolio_item = Portfolio.new
-    #creates three types of technologies and makes it available to the form.
-    3.times {@portfolio_item.technologies.build}
   end
 
   #create action creates a portfolio item
@@ -85,7 +83,8 @@ class PortfoliosController < ApplicationController
                                         :body,
                                         :main_image,
                                         :thumb_image,
-                                        technologies_attributes: [:name]
+                                        # cocoon needs us to include an :id and :_destroy
+                                        technologies_attributes: [:id, :name, :_destroy]
                                         )
 
   end

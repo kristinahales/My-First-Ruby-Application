@@ -56,10 +56,16 @@ gem 'friendly_id', '~> 5.1.0'
 # a gem that helps with authentication
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
+
 gem 'bootstrap', '~> 4.3.1'
 gem 'petergate', '~> 1.7'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+# a gem that helped us make our portfolio items drag & drop view -- app/javascripts/application.js file
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+#a gem that helped with image uploads view -- app/uploaders/portfolio_uploaders 
 gem 'carrierwave', '~> 0.11.2'
+gem 'cocoon', '~> 1.2', '>= 1.2.14'

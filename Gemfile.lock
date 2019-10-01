@@ -55,6 +55,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    cocoon (1.2.14)
     coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -226,6 +227,7 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   byebug
   carrierwave (~> 0.11.2)
+  cocoon (~> 1.2, >= 1.2.14)
   coffee-rails (~> 4.2)
   devise (~> 4.7, >= 4.7.1)
   font-awesome-rails (~> 4.7, >= 4.7.0.5)
