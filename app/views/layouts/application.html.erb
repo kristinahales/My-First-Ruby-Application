@@ -22,7 +22,8 @@
 
       <%# rendering the footer to the page from the partial located at shared/application_footer %>
       <%= render "shared/application_footer" %>
-      <%= render "shared/alerts" %>
+      <%# calling the method from application_helper.rb   gritter ruby gem helps with alerts. %>
+      <%= alerts %>
     </div>
   </body>
 </html>
