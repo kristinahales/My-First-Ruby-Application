@@ -56,7 +56,6 @@ gem 'friendly_id', '~> 5.1.0'
 # a gem that helps with authentication
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
-
 gem 'bootstrap', '~> 4.3.1'
 gem 'petergate', '~> 1.7'
 
@@ -70,3 +69,4 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cocoon', '~> 1.2', '>= 1.2.14'
 gem 'gritter', '~> 1.2'
+gem 'redis', '~> 4.1', '>= 4.1.3'

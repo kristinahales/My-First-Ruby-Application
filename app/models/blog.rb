@@ -1,6 +1,4 @@
 #whenever we create a new blog post, by default it is going to be in draft mode until it is published and the state changes.
-
-
 class Blog < ApplicationRecord
     enum status: {draft: 0, published: 1}
     extend FriendlyId
@@ -10,4 +8,6 @@ class Blog < ApplicationRecord
     validates_presence_of :title, :body
 
     belongs_to :topic
+
+    has_many :comments, dependent: :destroy
 end
