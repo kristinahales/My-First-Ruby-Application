@@ -15,6 +15,9 @@ class User < ApplicationRecord
   
   #checks if a name is supplied before proceeding to these methods.
   validates_presence_of :name
+
+  has_many :comments, dependent: :destroy
+  
   def first_name
     #self = specfic user. split = takes a string and splits it into array.
     self.name.split.first
