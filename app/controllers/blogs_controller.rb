@@ -10,8 +10,14 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    #the .page(params[:page].per(5)) on Blog is part of the kaminiri gem which allows us to see only 5 blogs at one time.
-    @blogs = Blog.page(params[:page]).per(5)
+    if logged_in?(:site_admin)
+      #the .page(params[:page].per(5)) on Blog is part of the kaminiri gem which allows us to see only 5 blogs at one time.
+      #recent is a method from blog.rb that places most recent blog posts first
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      # if not a site admin you will only see published blogs, not drafts.
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
     #able to set a specific title for the blogs page using application controller method.
     @page_title = "My Portfolio Blog"
   end
