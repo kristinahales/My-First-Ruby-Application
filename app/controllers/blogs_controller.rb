@@ -19,6 +19,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog = Blog.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
+    
     #page_title is a method from concerns/application file
     #we have access to @blog_title because of the before_action that calls :set_blog method.
     @page_title = @blog.title
