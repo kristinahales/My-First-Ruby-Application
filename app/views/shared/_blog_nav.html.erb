@@ -1,12 +1,13 @@
-<%# Partials are always created in the views file and contain a _ before the name. %>
-<%# We are able to access these nav bar components in more than one layout now. %>
-<div class="nav-container">
-  <nav class="nav d-flex justify-content-center">
-    <%# helpers/application_helper %>
-    <%= nav_helper 'nav-link', 'span' %>  
-    <%= login_helper 'nav-link' %>
-  </nav>
-  <hr/>
-</div>
-
-
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Kristina Hales</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <%# helpers/application_helper %>
+      <%= nav_helper 'nav-link', 'span' %>  
+      <%= login_helper 'nav-link' %>
+    </div>
+  </div>
+</nav>
