@@ -1,0 +1,9 @@
+<div class='col-sm-8 blog-main'>
+  <h1><%= @topic.title %></h1>
+  <div class="col-md-8 blog-main">
+    <%= render @blogs %>
+    <%# paginate comes from kaminiri gem package. allows us to have next and last buttons. %>
+    <%= paginate @blogs%>
+  </div>
+</div>
+

@@ -5,9 +5,14 @@ class Blog < ApplicationRecord
     friendly_id :title, use: :slugged
 
     #data validation- a blog post must have a title and body in order to be created.
-    validates_presence_of :title, :body
+    validates_presence_of :title, :body, :topic_id
 
     belongs_to :topic
 
     has_many :comments, dependent: :destroy
+
+    def self.recent
+        order("created_at DESC")
+    end
+
 end

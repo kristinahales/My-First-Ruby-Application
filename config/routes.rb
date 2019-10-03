@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  # after we ran a --   rails g controller Topics index show   it generated these routes
+  # get 'topics/index'
+  # get 'topics/show'
+
+  # we are changing it to this route
+  resources :topics, only: [:index, :show]
+
   devise_for :users
   # default routes given to us for resources  
   # resources :portfolios

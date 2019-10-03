@@ -2,6 +2,9 @@ class BlogsController < ApplicationController
   #a controller process that allows a method to be run before other controller methods.
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
+  #show sidebar topics
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
+
   #says in the layout directory find a file called blog and apply layout styles. 
   layout "blog"
   #everyone has access to show and index. regular user cannot destroy, update, and create. site_admin can do everything.
@@ -10,8 +13,14 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    #the .page(params[:page].per(5)) on Blog is part of the kaminiri gem which allows us to see only 5 blogs at one time.
-    @blogs = Blog.page(params[:page]).per(5)
+    if logged_in?(:site_admin)
+      #the .page(params[:page].per(5)) on Blog is part of the kaminiri gem which allows us to see only 5 blogs at one time.
+      #recent is a method from blog.rb that places most recent blog posts first
+      @blogs = Blog.recent.page(params[:page]).per(5)
+    else
+      # if not a site admin you will only see published blogs, not drafts.
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
     #able to set a specific title for the blogs page using application controller method.
     @page_title = "My Portfolio Blog"
   end
@@ -19,14 +28,18 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
-    
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+      
     #page_title is a method from concerns/application file
     #we have access to @blog_title because of the before_action that calls :set_blog method.
     @page_title = @blog.title
     #search engine optimization. 
     @seo_keywords = @blog.body
+    else  
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
 
   # GET /blogs/new
@@ -96,6 +109,10 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id, :status)
+    end
+
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_blogs
     end
 end
