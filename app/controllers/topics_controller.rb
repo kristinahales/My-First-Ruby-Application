@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+  #always show sidebar topics
+  before_action :set_sidebar_topics
+
+  # have the topics layout look just like the blogs layout.
   layout 'blog'
   def index
     @topics = Topic.all
@@ -15,6 +19,12 @@ class TopicsController < ApplicationController
       # if not a site admin you will only see published blogs, not drafts.
       @blogs = @topic.blogs.published.recent.page(params[:page]).per(5)
     end
+  end
+
+  private
+
+  def set_sidebar_topics
+    @side_bar_topics = Topic.with_blogs
   end
 
 end

@@ -2,6 +2,9 @@ class BlogsController < ApplicationController
   #a controller process that allows a method to be run before other controller methods.
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
 
+  #show sidebar topics
+  before_action :set_sidebar_topics, except: [:update, :create, :destroy, :toggle_status]
+
   #says in the layout directory find a file called blog and apply layout styles. 
   layout "blog"
   #everyone has access to show and index. regular user cannot destroy, update, and create. site_admin can do everything.
@@ -107,5 +110,9 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title, :body, :topic_id)
+    end
+
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_blogs
     end
 end
