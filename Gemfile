@@ -69,8 +69,7 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'carrierwave', '~> 0.11.2'
 gem 'cocoon', '~> 1.2', '>= 1.2.14'
 gem 'gritter', '~> 1.2'
-# gem 'redis', '~> 4.1', '>= 4.1.3'
-gem "redis", "~> 3.0"
+gem 'redis', '~> 4.1', '>= 4.1.3'
 #a gem to allow markdown
 gem 'redcarpet', '~> 3.4'
 # a gem that allows for syntax highlighting
