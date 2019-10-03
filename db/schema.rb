@@ -49,18 +49,6 @@ ActiveRecord::Schema.define(version: 20191002143901) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
-  create_table "installs", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_installs_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_installs_on_reset_password_token", unique: true, using: :btree
-  end
-
   create_table "portfolios", force: :cascade do |t|
     t.string   "title"
     t.string   "subtitle"
