@@ -1,5 +1,23 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+User.create!(
+    email: "kristina@kristina.com",
+    password: "kristina",
+    password_confirmation: "kristina",
+    name: "Kristina",
+    roles: "site_admin"
+)
+
+puts "1 admin user created"
+
+User.create!(
+    email: "joey@joey.com",
+    password: "joeyjoey",
+    password_confirmation: "joeyjoey",
+    name: "Joey Hendricks"
+)
+
+puts "1 regular user created"
 
 3.times do |topic|
     Topic.create!(
@@ -48,7 +66,7 @@ end
     )
 end
 
-puts "9 portfolio items created!"
+puts "9 portfolio items created"
 
 3.times do |technology|
     Portfolio.last.technologies.create!(
