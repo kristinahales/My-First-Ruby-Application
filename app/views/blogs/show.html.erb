@@ -6,6 +6,10 @@
     <%= @blog.body %>
   </p>
 
+  <p>
+  <%= @blog.topic.title%>
+  </p>
+
   <%= render 'comments/comment_form' %>
   
   <%# rendering a partial %>
