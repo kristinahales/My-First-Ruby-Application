@@ -74,3 +74,5 @@ gem 'redis', '~> 4.1', '>= 4.1.3'
 gem 'redcarpet', '~> 3.4'
 # a gem that allows for syntax highlighting
 gem 'coderay', '~> 1.1', '>= 1.1.1'
+
+ruby "2.6.2"
