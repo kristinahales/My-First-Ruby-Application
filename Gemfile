@@ -71,7 +71,7 @@ gem 'cocoon', '~> 1.2', '>= 1.2.14'
 gem 'gritter', '~> 1.2'
 gem 'redis', '~> 4.1', '>= 4.1.3'
 #a gem to allow markdown
-gem 'redcarpet', '~> 3.4'
+gem 'redcarpet', '~> 3.5'
 # a gem that allows for syntax highlighting
 gem 'coderay', '~> 1.1', '>= 1.1.1'
 
